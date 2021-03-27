@@ -18,3 +18,4 @@ jobs:
         with:
           tags: nofirg/nginx:latest
           context: ./images/nginx
+          push: true
