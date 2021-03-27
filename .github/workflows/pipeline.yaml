@@ -22,3 +22,4 @@ jobs:
           repository: ${{ github.repository }}/nginx
           tag_with_sha: true
           tag_with_ref: true
+          context: ./images.nginx
