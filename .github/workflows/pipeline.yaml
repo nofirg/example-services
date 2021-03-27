@@ -10,14 +10,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Build and push nginx
-        id: docker_build
-        uses: docker/build-push-action@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build container image
+        uses: docker/build-push-action@v1
         with:
-          context: ./images/nginx
-          file: ./images/nginx
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/nginx
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: ${{ github.repository }}/nginx
+          tag_with_sha: true
+          tag_with_ref: true
