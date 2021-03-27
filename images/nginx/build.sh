@@ -2,7 +2,7 @@
 set +e
 set -x
 
-export IMAGE_NAME=ghcr.io/invoicebox/aeroexpress-api/nginx
+export IMAGE_NAME=ghcr.io/nofirg/example-service/nginx
 
 docker pull nginx:alpine
 
