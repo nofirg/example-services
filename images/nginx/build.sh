@@ -8,3 +8,4 @@ docker pull nginx:alpine
 
 docker build . -t ${IMAGE_NAME}
 docker push ${IMAGE_NAME}
+
