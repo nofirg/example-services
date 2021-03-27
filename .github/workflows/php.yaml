@@ -22,6 +22,6 @@ jobs:
       - name: Build container image
         uses: docker/build-push-action@v2
         with:
-          tags: nofirg/example-service/php:latest
+          tags: ghcr.io/nofirg/example-service/php:latest
           context: ./images/php
           push: true
