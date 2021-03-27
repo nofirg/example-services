@@ -1,9 +1,9 @@
-name: CI
+name: Build base php image
 on:
   push:
     branches: 
       - main
-    paths: 'images/**'
+    paths: 'images/php/**'
 
   workflow_dispatch:
 
@@ -13,15 +13,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Login to DockerHub
+      - name: Login to Docker Registry
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: ${{ secrets.DOCKERHUB_LOGIN }}
+          username: ${{ github.repository_owner }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build container image
         uses: docker/build-push-action@v2
         with:
           tags: nofirg/nginx:latest
-          context: ./images/nginx
+          context: ./images/php
           push: true
