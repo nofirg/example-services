@@ -22,6 +22,6 @@ jobs:
       - name: Build container image
         uses: docker/build-push-action@v2
         with:
-          tags: ghcr.io/nofirg/example-service/nginx:latest
+          tags: ghcr.io/nofirg/aeroexpress-nginx:latest
           context: ./images/nginx
           push: true
